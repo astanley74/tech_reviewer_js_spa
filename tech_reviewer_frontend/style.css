@@ -31,3 +31,12 @@ body {
   .product h2 {
       text-align: right;
   }
+
+  .container {
+    padding: 1rem;
+    width: stretch;
+    height: auto;
+    display: block;
+    background: red;
+    opacity: .8;
+  }

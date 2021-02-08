@@ -4,6 +4,7 @@ function fetchProducts() {
     .then(data => data.forEach(product => appendProduct(product)))
 }
 
+
 function appendProduct(product) {
     let productDiv = document.querySelector('#product-collection')
     let divCard = document.createElement('div')
