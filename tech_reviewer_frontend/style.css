@@ -4,10 +4,11 @@ body {
   }
 
 .product {
-    width: 320px;
+    width: 80%;
     padding: 10px;
     border: 5px solid gray;
     margin: 0;
+    overflow: auto;
   }
 
   #product-collection {
@@ -15,8 +16,18 @@ body {
   }
 
   .product img {
-    justify-self: left;
-    height: 12rem;
-    width: auto;
     float: left;
+    width: 200px;
+    height: 200px;
+  }
+
+  .product h1 {
+    position: relative;
+    float: left;
+    top: 50px;
+    left: 10px;
+  }
+
+  .product h2 {
+      text-align: right;
   }
