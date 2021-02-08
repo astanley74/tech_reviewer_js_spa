@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (addProduct) {
             productForm.style.display = "block";
             productForm.addEventListener('submit', function(event) {
-                event.preventDefault;
+                event.preventDefault();
                 createToy(event.target)
             })
         } else {
@@ -22,6 +22,27 @@ function fetchProducts() {
     fetch('http://localhost:3000/api/v1/products')
     .then(response => response.json())
     .then(data => data.forEach(product => appendProduct(product)))
+}
+
+function createToy(product) {
+    fetch('http://localhost:3000/api/v1/products', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+
+        body: JSON.stringify({
+            "name": product.name.value,
+            "brand": product.brand.value,
+            "price": product.price.value,
+            "image_url": product.image.value
+        })
+    })
+    .then(response => response.json())
+    .then(object => {
+        appendProduct(object)
+    })
 }
 
 
