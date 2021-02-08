@@ -1,3 +1,23 @@
+let addProduct = false;
+
+document.addEventListener("DOMContentLoaded", () => {
+    const newBtn = document.querySelector('#new-product-btn');
+    const productForm = document.querySelector(".container");
+
+    newBtn.addEventListener("click", () => {
+        addProduct = !addProduct;
+        if (addProduct) {
+            productForm.style.display = "block";
+            productForm.addEventListener('submit', function(event) {
+                event.preventDefault;
+                createToy(event.target)
+            })
+        } else {
+            productForm.style.display = "none";
+        }
+    });
+});
+
 function fetchProducts() {
     fetch('http://localhost:3000/api/v1/products')
     .then(response => response.json())
@@ -23,3 +43,5 @@ function appendProduct(product) {
     divCard.append(h2, img, h1)
     productDiv.append(divCard)
 }
+
+fetchProducts()

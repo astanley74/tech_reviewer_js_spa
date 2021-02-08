@@ -36,7 +36,7 @@ body {
     padding: 1rem;
     width: stretch;
     height: auto;
-    display: block;
+    display: none;
     background: red;
     opacity: .8;
   }
