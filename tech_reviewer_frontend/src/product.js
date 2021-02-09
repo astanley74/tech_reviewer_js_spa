@@ -47,6 +47,7 @@ class Product {
                             name: event.target.name.value,
                             brand: event.target.brand.value,
                             price: event.target.price.value,
+                            avg_rating: undefined,
                             image_url: event.target.image.value
                         })
                     })
@@ -80,7 +81,17 @@ class Product {
             let img = document.createElement('img')
             img.setAttribute('class', 'product-image')
             img.src = this.image_url
-    
+            // let newDiv = document.createElement('div')
+            // newDiv.setAttribute('class', 'review')
+            // let newh2 = document.createElement('h2')
+            // newh2.innerHTML = "Product Reviews"
+
+            // let ul = document.createElement('ul')
+            // let li = document.createElement('li')
+            // li.innerHTML = "this is the first review kzsdjf kd fajkd fkd jfkadj fkl;adsj flkadj fkd jfkd fjkdjfkd jfkd fk dfjkd jfkdjfk dfk "
+            // ul.append(li)
+            // newDiv.append(newh2, ul)
+
             divCard.append(h2, img, h1)
             productDiv.append(divCard)
     
