@@ -1,5 +1,8 @@
+let addProduct = false;
+
 document.addEventListener("DOMContentLoaded", function(){
     Product.fetchProducts()
+    Product.createProduct()
 })
 
 class Product {
@@ -20,6 +23,44 @@ class Product {
             let newProduct = new Product(product)
             newProduct.appendProduct()
         }))
+    }
+
+    static createProduct() {
+        const newBtn = document.querySelector('#new-product-btn');
+        const productForm = document.querySelector(".container");
+        const form = document.querySelector(".new-product-form");
+
+        newBtn.addEventListener("click", () => {
+            addProduct = !addProduct;
+            if (addProduct) {
+                productForm.style.display = "block";
+                productForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    fetch('http://localhost:3000/api/v1/products', {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                
+                        body: JSON.stringify({
+                            name: event.target.name.value,
+                            brand: event.target.brand.value,
+                            price: event.target.price.value,
+                            image_url: event.target.image.value
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(product => {
+                        let newProduct = new Product(product)
+                        newProduct.appendProduct()
+                        form.reset()
+                    })
+                })
+            } else {
+                productForm.style.display = "none";
+            }
+        });
     }
 
     appendProduct() {
