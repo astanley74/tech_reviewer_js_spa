@@ -5,8 +5,12 @@ class Api::V1::ProductsController < ApplicationController
     end
 
     def create
-        product = Product.create(product_params)
-        render json: product
+        if Product.find_by(:name => product_params[:name])
+            render json: {message: "Product has already been created"}
+        else
+            product = Product.create(product_params)
+            render json: product
+        end
     end
 
 private
