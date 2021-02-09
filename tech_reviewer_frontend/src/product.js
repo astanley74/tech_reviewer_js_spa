@@ -82,10 +82,16 @@ class Product {
             let img = document.createElement('img')
             img.setAttribute('class', 'product-image')
             img.src = this.image_url
+
             let reviewDiv = document.createElement('div')
             reviewDiv.setAttribute('class', 'review')
+
             let newh2 = document.createElement('h2')
             newh2.innerHTML = "Product Reviews:"
+
+            let addReviewBtn = document.createElement('button')
+            addReviewBtn.innerHTML = "Add Review"
+
 
             // let ul = document.createElement('ul')
             // let li = document.createElement('li')
@@ -93,7 +99,7 @@ class Product {
             // ul.append(li)
             reviewDiv.append(newh2)
 
-            divCard.append(h2, img, h1, reviewDiv)
+            divCard.append(h2, img, h1, reviewDiv, addReviewBtn)
             productDiv.append(divCard)
 
             if (this.reviews) {

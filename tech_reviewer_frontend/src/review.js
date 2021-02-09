@@ -15,7 +15,7 @@ class Review {
         console.log(reviewDiv)
 
         let p = document.createElement('p')
-        p.innerHTML = `${this.user}`
+        p.innerHTML = `${this.user} - Rating: ${this.rating}`
 
         let ul = document.createElement('ul')
         let li = document.createElement('li')

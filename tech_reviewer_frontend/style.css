@@ -33,6 +33,11 @@ body {
       text-align: right;
   }
 
+  .product button {
+    float: right;
+    margin: 15px;
+  }
+
   .container {
     padding: 1rem;
     width: stretch;
