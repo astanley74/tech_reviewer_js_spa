@@ -12,3 +12,4 @@ macbook_air = Product.create(name: "Macbook Air", brand: "Apple", price: 999, av
 iphone = Product.create(name: "iPhone 12", brand: "Apple", price: 799, avg_rating: 5.0, image_url: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-blue-hero?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1604021661000")
 
 Review.create(user: "Tom Allen", comment: "This is a great laptop for people in any industry. I am a student at Ohio State and it works great for me", rating: 5.0, product_id: macbook_air.id)
+Review.create(user: "Ryan Day", comment: "Great Laptop for anyone in the software engineering field.", rating: 5.0, product_id: macbook_air.id)
