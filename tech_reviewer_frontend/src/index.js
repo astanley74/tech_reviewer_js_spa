@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             productForm.style.display = "block";
             productForm.addEventListener('submit', function(event) {
                 event.preventDefault();
-                createToy(event.target)
+                createProduct(event.target)
             })
         } else {
             productForm.style.display = "none";
@@ -18,18 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-function fetchProducts() {
-    fetch('http://localhost:3000/api/v1/products')
-    .then(response => response.json())
-    .then(data => data.forEach(product => {
-        // debugger;
-        let newProduct = new Product(product)
-        appendProduct(newProduct)
-    }))
-}
-
-function createToy(product) {
+function createProduct(product) {
     fetch('http://localhost:3000/api/v1/products', {
         method: "POST",
         headers: {
@@ -51,28 +40,28 @@ function createToy(product) {
 }
 
 
-function appendProduct(product) {
-    if (product.message) {
-        alert(product.message)
-    } else {
-        let productDiv = document.querySelector('#product-collection')
-        let divCard = document.createElement('div')
-        divCard.setAttribute('class', 'product')
+// function appendProduct(product) {
+//     if (product.message) {
+//         alert(product.message)
+//     } else {
+//         let productDiv = document.querySelector('#product-collection')
+//         let divCard = document.createElement('div')
+//         divCard.setAttribute('class', 'product')
 
-        let h1 = document.createElement('h1')
-        h1.innerHTML = `${product.brand} ${product.name} ($${product.price})`
+//         let h1 = document.createElement('h1')
+//         h1.innerHTML = `${product.brand} ${product.name} ($${product.price})`
 
-        let h2 = document.createElement('h2')
-        h2.innerHTML = `Avg Rating: ${product.avg_rating}`
+//         let h2 = document.createElement('h2')
+//         h2.innerHTML = `Avg Rating: ${product.avg_rating}`
 
-        let img = document.createElement('img')
-        img.setAttribute('class', 'product-image')
-        img.src = product.image_url
+//         let img = document.createElement('img')
+//         img.setAttribute('class', 'product-image')
+//         img.src = product.image_url
 
-        divCard.append(h2, img, h1)
-        productDiv.append(divCard)
+//         divCard.append(h2, img, h1)
+//         productDiv.append(divCard)
 
-    }
-}
+//     }
+// }
 
-fetchProducts()
+// fetchProducts()
