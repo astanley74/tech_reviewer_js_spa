@@ -93,10 +93,6 @@ class Product {
             addReviewBtn.innerHTML = "Add Review"
 
 
-            // let ul = document.createElement('ul')
-            // let li = document.createElement('li')
-            // li.innerHTML = "this is the first review kzsdjf kd fajkd fkd jfkadj fkl;adsj flkadj fkd jfkd fjkdjfkd jfkd fk dfjkd jfkdjfk dfk "
-            // ul.append(li)
             reviewDiv.append(newh2)
 
             divCard.append(h2, img, h1, reviewDiv, addReviewBtn)
