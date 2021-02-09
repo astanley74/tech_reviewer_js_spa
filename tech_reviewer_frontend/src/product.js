@@ -13,6 +13,7 @@ class Product {
         this.price = product.price
         this.avg_rating = product.avg_rating
         this.image_url = product.image_url
+        this.reviews = product.reviews
     }
 
     static fetchProducts() {
@@ -81,19 +82,26 @@ class Product {
             let img = document.createElement('img')
             img.setAttribute('class', 'product-image')
             img.src = this.image_url
-            // let newDiv = document.createElement('div')
-            // newDiv.setAttribute('class', 'review')
-            // let newh2 = document.createElement('h2')
-            // newh2.innerHTML = "Product Reviews"
+            let reviewDiv = document.createElement('div')
+            reviewDiv.setAttribute('class', 'review')
+            let newh2 = document.createElement('h2')
+            newh2.innerHTML = "Product Reviews:"
 
             // let ul = document.createElement('ul')
             // let li = document.createElement('li')
             // li.innerHTML = "this is the first review kzsdjf kd fajkd fkd jfkadj fkl;adsj flkadj fkd jfkd fjkdjfkd jfkd fk dfjkd jfkdjfk dfk "
             // ul.append(li)
-            // newDiv.append(newh2, ul)
+            reviewDiv.append(newh2)
 
-            divCard.append(h2, img, h1)
+            divCard.append(h2, img, h1, reviewDiv)
             productDiv.append(divCard)
+
+            if (this.reviews) {
+                this.reviews.forEach(review => {
+                    let newReview = new Review(review)
+                    newReview.appendReview()
+                })
+            }
     
         }
     }
