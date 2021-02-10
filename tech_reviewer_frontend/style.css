@@ -59,3 +59,11 @@ body {
 .review p {
   left: 20px;
 }
+
+.current-review button {
+  float: right;
+  font-size: .70em;
+  color: #fff;
+  background-color: red;
+  border-radius: 18px;
+}

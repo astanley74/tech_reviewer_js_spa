@@ -56,6 +56,7 @@ class Review {
 
         let currentReview = document.createElement('div')
         currentReview.dataset.id = this.id
+        currentReview.setAttribute('class', 'current-review')
 
         let p = document.createElement('p')
         p.innerHTML = `${this.user} - Rating: ${this.rating}`
