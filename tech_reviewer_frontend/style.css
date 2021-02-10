@@ -62,8 +62,21 @@ body {
 
 .current-review button {
   float: right;
-  font-size: .70em;
-  color: #fff;
-  background-color: red;
-  border-radius: 18px;
+  border: none;
+  background: #404040;
+  color: #ffffff !important;
+  font-weight: 100;
+  padding: 20px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  transition: all 0.3s ease 0s;
+}
+
+.current-review button:hover {
+  color: #404040 !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px;
+  background: none;
+
+  transition: all 0.3s ease 0s;
 }
