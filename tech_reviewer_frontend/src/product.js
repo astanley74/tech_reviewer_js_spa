@@ -93,7 +93,6 @@ class Product {
                 let formDiv = document.createElement('div')
                 formDiv.setAttribute('class', 'review-form')
                 divCard.append(formDiv)
-                console.log(divCard.dataset.id)
                 Review.createReview(divCard.dataset.id, reviewDiv)
             })
 
