@@ -63,6 +63,11 @@ class Review {
         let li = document.createElement('li')
         li.innerHTML = `${this.comment}`
 
+        let deleteBtn = document.createElement('button')
+        deleteBtn.innerHTML = "Delete Review"
+
+        p.append(deleteBtn)
+
         currentReview.append(p, li)
 
         reviewDiv.append(currentReview)
