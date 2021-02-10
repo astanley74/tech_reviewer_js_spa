@@ -1,4 +1,4 @@
-let addProduct = false;
+let addReview = false
 
 document.addEventListener("DOMContentLoaded", function(){
     Product.fetchProducts()
@@ -66,12 +66,10 @@ class Product {
     }
 
     appendProduct() {
-        if (this.message) {
-            alert(this.message)
-        } else {
             let productDiv = document.querySelector('#product-collection')
             let divCard = document.createElement('div')
             divCard.setAttribute('class', 'product')
+            divCard.dataset.id = this.id
     
             let h1 = document.createElement('h1')
             h1.innerHTML = `${this.brand} ${this.name} ($${this.price})`
@@ -86,11 +84,18 @@ class Product {
             let reviewDiv = document.createElement('div')
             reviewDiv.setAttribute('class', 'review')
 
-            let newh2 = document.createElement('h2')
+            let newh2 = document.createElement('h3')
             newh2.innerHTML = "Product Reviews:"
 
             let addReviewBtn = document.createElement('button')
             addReviewBtn.innerHTML = "Add Review"
+            addReviewBtn.addEventListener('click', function(){
+                let formDiv = document.createElement('div')
+                formDiv.setAttribute('class', 'review-form')
+                divCard.append(formDiv)
+                console.log(divCard.dataset.id)
+                Review.createReview(divCard.dataset.id, reviewDiv)
+            })
 
 
             reviewDiv.append(newh2)
@@ -101,10 +106,8 @@ class Product {
             if (this.reviews) {
                 this.reviews.forEach(review => {
                     let newReview = new Review(review)
-                    newReview.appendReview()
+                    newReview.appendReview(reviewDiv)
                 })
             }
-    
-        }
     }
 }

@@ -13,3 +13,6 @@ iphone = Product.create(name: "iPhone 12", brand: "Apple", price: 799, avg_ratin
 
 Review.create(user: "Tom Allen", comment: "This is a great laptop for people in any industry. I am a student at Ohio State and it works great for me", rating: 5.0, product_id: macbook_air.id)
 Review.create(user: "Ryan Day", comment: "Great Laptop for anyone in the software engineering field.", rating: 5.0, product_id: macbook_air.id)
+
+Review.create(user: "Zach Stanley", comment: "Amazing Laptop", rating: 5.0, product_id: iphone.id)
+Review.create(user: "Caleb Stanley", comment: "Perfect Laptop", rating: 5.0, product_id: iphone.id)
