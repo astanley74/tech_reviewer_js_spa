@@ -9,6 +9,9 @@ class Api::V1::ReviewsController < ApplicationController
         render json: review
     end
 
+    def destroy
+    end
+
 private
 
     def review_params
