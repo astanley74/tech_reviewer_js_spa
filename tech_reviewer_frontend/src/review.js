@@ -54,12 +54,17 @@ class Review {
 
     appendReview(reviewDiv){
 
+        let currentReview = document.createElement('div')
+        currentReview.dataset.id = this.id
+
         let p = document.createElement('p')
         p.innerHTML = `${this.user} - Rating: ${this.rating}`
 
         let li = document.createElement('li')
         li.innerHTML = `${this.comment}`
 
-        reviewDiv.append(p, li)
+        currentReview.append(p, li)
+
+        reviewDiv.append(currentReview)
     }
 }
