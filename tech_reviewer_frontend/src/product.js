@@ -1,4 +1,4 @@
-let addReview = false
+let addProduct = false
 
 document.addEventListener("DOMContentLoaded", function(){
     Product.fetchProducts()
