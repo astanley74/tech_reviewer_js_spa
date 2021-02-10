@@ -10,6 +10,8 @@ class Api::V1::ReviewsController < ApplicationController
     end
 
     def destroy
+        review = Review.find_by(id: params[:id]).destroy
+        render json: review
     end
 
 private
