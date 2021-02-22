@@ -11,8 +11,8 @@ Review.destroy_all
 macbook_air = Product.create(name: "Macbook Air", brand: "Apple", price: 999, avg_rating: 4.3, image_url: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=892&hei=820&&qlt=80&.v=1603332211000")
 iphone = Product.create(name: "iPhone 12", brand: "Apple", price: 799, avg_rating: 5.0, image_url: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-blue-hero?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1604021661000")
 
-Review.create(user: "Tom Allen", comment: "This is a great laptop for people in any industry. I am a student at Ohio State and it works great for me", rating: 5.0, product_id: macbook_air.id)
-Review.create(user: "Ryan Day", comment: "Great Laptop for anyone in the software engineering field.", rating: 5.0, product_id: macbook_air.id)
+Review.create(user: "Colby Allen", comment: "This is a great laptop for people in any industry. I am a student at Ohio State and it works great for me", rating: 5.0, product_id: macbook_air.id)
+Review.create(user: "John Newman", comment: "Great Laptop for anyone in the software engineering field.", rating: 5.0, product_id: macbook_air.id)
 
-Review.create(user: "Zach Stanley", comment: "Amazing Laptop", rating: 5.0, product_id: iphone.id)
-Review.create(user: "Caleb Stanley", comment: "Perfect Laptop", rating: 5.0, product_id: iphone.id)
+Review.create(user: "Chris Olson", comment: "One of the best phones I have ever had! definitely recommend.", rating: 5.0, product_id: iphone.id)
+Review.create(user: "Lance Richards", comment: "Great phone. The touch screen is very responsive and there are so many things you can do with it.", rating: 5.0, product_id: iphone.id)
