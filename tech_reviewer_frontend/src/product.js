@@ -1,6 +1,8 @@
 
 let addProduct = false
 
+const apiService = new ApiService()
+
 document.addEventListener("DOMContentLoaded", function(){
     Product.fetchProducts()
     Product.createProduct()
@@ -18,8 +20,7 @@ class Product {
     }
 
     static fetchProducts() {
-        fetch('http://localhost:3000/api/v1/products')
-        .then(response => response.json())
+        apiService.findProducts()
         .then(data => data.forEach(product => {
             // debugger;
             let newProduct = new Product(product)
