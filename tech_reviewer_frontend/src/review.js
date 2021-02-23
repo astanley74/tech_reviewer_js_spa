@@ -28,21 +28,7 @@ class Review {
         formDiv.addEventListener('submit', function(event) {
             let newForm = document.querySelector(".new-review-form")
             event.preventDefault();
-            fetch('http://localhost:3000/api/v1/reviews', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-        
-                body: JSON.stringify({
-                    user: event.target.user.value,
-                    comment: event.target.comment.value,
-                    rating: event.target.rating.value,
-                    product_id: product_id
-                })
-            })
-            .then(response => response.json())
+            apiService.postReview(event, product_id)
             .then(review => {
                 let newReview = new Review(review)
                 newReview.appendReview(reviewDiv)
