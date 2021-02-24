@@ -44,4 +44,12 @@ class ApiService {
         })
         .then(response => response.json())
     }
+
+    removeReview(event) {
+        let id = event.target.parentElement.parentElement.dataset.id
+        fetch(`http://localhost:3000/api/v1/reviews/${id}`, {
+            method: "DELETE"
+        })
+    }
+    
 }
