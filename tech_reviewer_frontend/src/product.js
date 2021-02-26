@@ -24,19 +24,24 @@ class Product {
         const productForm = document.querySelector(".container");
         const form = document.querySelector(".new-product-form");
 
+        Product.hideOrShowProductForm(newBtn, productForm)
+
+        productForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            apiService.postProduct(event)
+            .then(product => {
+                let newProduct = new Product(product)
+                newProduct.appendProduct()
+                form.reset()
+            })
+        })
+    }
+
+    static hideOrShowProductForm(newBtn, productForm) {
         newBtn.addEventListener("click", () => {
             addProduct = !addProduct;
             if (addProduct) {
                 productForm.style.display = "block";
-                productForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    apiService.postProduct(event)
-                    .then(product => {
-                        let newProduct = new Product(product)
-                        newProduct.appendProduct()
-                        form.reset()
-                    })
-                })
             } else {
                 productForm.style.display = "none";
             }
@@ -67,12 +72,7 @@ class Product {
 
         let addReviewBtn = document.createElement('button')
         addReviewBtn.innerHTML = "Add Review"
-        addReviewBtn.addEventListener('click', function(){
-            let formDiv = document.createElement('div')
-            formDiv.setAttribute('class', 'review-form')
-            divCard.append(formDiv)
-            Review.createReview(divCard.dataset.id, reviewDiv)
-        })
+
 
         reviewDiv.append(h3)
 
@@ -80,6 +80,8 @@ class Product {
         productDiv.append(divCard)
 
         this.renderReviews(reviewDiv)
+
+        Review.createReview(divCard.dataset.id, reviewDiv, divCard)
     }
 
     renderReviews(reviewDiv) {

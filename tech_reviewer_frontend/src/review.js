@@ -8,9 +8,13 @@ class Review {
         this.comment = review.comment
         this.rating = review.rating
     }
+    
 
-    static createReview(product_id, reviewDiv) {
-        let formDiv = document.querySelector(".review-form")
+    static createReview(product_id, reviewDiv, divCard) {
+
+        let formDiv = document.createElement('div')
+        formDiv.setAttribute('class', 'review-form')
+        divCard.append(formDiv)
         let form = 
 `           <form class="new-review-form">
                 <label>Name: </label>
@@ -26,15 +30,14 @@ class Review {
 
 
         formDiv.addEventListener('submit', function(event) {
-            let newForm = document.querySelector(".new-review-form")
+            let newForm = formDiv.lastElementChild
             event.preventDefault();
             apiService.postReview(event, product_id)
             .then(review => {
                 let newReview = new Review(review)
                 newReview.appendReview(reviewDiv)
+                newForm.reset()
             })
-            newForm.reset()
-            formDiv.remove()
         })
     }
 
