@@ -1,3 +1,4 @@
+let addReview = false;
 let reviewDiv = document.querySelector('.review')
 
 
@@ -15,6 +16,7 @@ class Review {
         let formDiv = document.createElement('div')
         formDiv.setAttribute('class', 'review-form')
         divCard.append(formDiv)
+
         let form = 
 `           <form class="new-review-form">
                 <label>Name: </label>
@@ -28,6 +30,8 @@ class Review {
 `
         formDiv.insertAdjacentHTML('beforeend', form)
 
+        Review.hideOrShowReviewForm(formDiv)
+
 
         formDiv.addEventListener('submit', function(event) {
             let newForm = formDiv.lastElementChild
@@ -38,6 +42,19 @@ class Review {
                 newReview.appendReview(reviewDiv)
                 newForm.reset()
             })
+        })
+    }
+
+    static hideOrShowReviewForm(formDiv) {
+        let addReviewBtn = formDiv.parentElement.getElementsByClassName("add-review-button")[0]
+        addReviewBtn.addEventListener('click', function() {
+            addReview = !addReview
+            if (addReview) {
+                formDiv.style.display = "block"
+            }
+            else {
+                formDiv.style.display = "none"
+            }
         })
     }
 

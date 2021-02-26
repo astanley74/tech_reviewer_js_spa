@@ -109,6 +109,9 @@ button:hover {
   left: 20px;
 }
 
+.review-form {
+  display: none;
+}
 
 .new-review-form {
   float: left;

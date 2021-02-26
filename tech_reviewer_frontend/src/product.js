@@ -71,6 +71,7 @@ class Product {
         h3.innerHTML = "Product Reviews:"
 
         let addReviewBtn = document.createElement('button')
+        addReviewBtn.setAttribute('class', 'add-review-button')
         addReviewBtn.innerHTML = "Add Review"
 
 
