@@ -41,6 +41,8 @@ class Review {
                 let newReview = new Review(review)
                 newReview.appendReview(reviewDiv)
                 newForm.reset()
+                formDiv.style.display = "none";
+                addReview = false;
             })
         })
     }
