@@ -109,14 +109,13 @@ button:hover {
   left: 20px;
 }
 
-.review-form {
+.new-review-form {
+  float: left;
   padding: 1rem;
-  width: stretch;
-  height: auto;
-  display: block;
   background: black;
   opacity: .8;
   color: white;
+  width: 500px;
 }
 
 .current-review button {
