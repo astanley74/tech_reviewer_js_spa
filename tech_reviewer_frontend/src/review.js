@@ -9,10 +9,8 @@ class Review {
         this.comment = review.comment
         this.rating = review.rating
     }
-    
 
-    static createReview(product_id, reviewDiv, divCard) {
-
+    static newReviewForm(product_id, reviewDiv, divCard) {
         let formDiv = document.createElement('div')
         formDiv.setAttribute('class', 'review-form')
         divCard.append(formDiv)
@@ -29,12 +27,16 @@ class Review {
             </form>
 `
         formDiv.insertAdjacentHTML('beforeend', form)
+        Review.createReview(product_id, reviewDiv, formDiv)
+    }
+    
 
+    static createReview(product_id, reviewDiv, formDiv) {
         Review.hideOrShowReviewForm(formDiv)
-
 
         formDiv.addEventListener('submit', function(event) {
             let newForm = formDiv.lastElementChild
+            
             event.preventDefault();
             apiService.postReview(event, product_id)
             .then(review => {
@@ -61,7 +63,6 @@ class Review {
     }
 
     appendReview(reviewDiv){
-
         let currentReview = document.createElement('div')
         currentReview.dataset.id = this.id
         currentReview.setAttribute('class', 'current-review')

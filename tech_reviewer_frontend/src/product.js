@@ -82,7 +82,7 @@ class Product {
 
         this.renderReviews(reviewDiv)
 
-        Review.createReview(divCard.dataset.id, reviewDiv, divCard)
+        Review.newReviewForm(divCard.dataset.id, reviewDiv, divCard)
     }
 
     renderReviews(reviewDiv) {
