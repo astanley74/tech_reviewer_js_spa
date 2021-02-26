@@ -13,8 +13,7 @@ class Product {
 
     static fetchProducts() {
         apiService.findProducts()
-        .then(data => data.forEach(product => {
-            // debugger;
+        .then(products => products.forEach(product => {
             let newProduct = new Product(product)
             newProduct.appendProduct()
         }))
@@ -53,8 +52,8 @@ class Product {
         let h1 = document.createElement('h1')
         h1.innerHTML = `${this.brand} ${this.name} ($${this.price})`
 
-        let h2 = document.createElement('h2')
-        h2.innerHTML = `Avg Rating: ${this.avg_rating}`
+        // let h2 = document.createElement('h2')
+        // h2.innerHTML = `Avg Rating: ${this.avg_rating}`
 
         let img = document.createElement('img')
         img.setAttribute('class', 'product-image')
@@ -63,8 +62,8 @@ class Product {
         let reviewDiv = document.createElement('div')
         reviewDiv.setAttribute('class', 'review')
 
-        let newh2 = document.createElement('h3')
-        newh2.innerHTML = "Product Reviews:"
+        let h3 = document.createElement('h3')
+        h3.innerHTML = "Product Reviews:"
 
         let addReviewBtn = document.createElement('button')
         addReviewBtn.innerHTML = "Add Review"
@@ -75,10 +74,9 @@ class Product {
             Review.createReview(divCard.dataset.id, reviewDiv)
         })
 
+        reviewDiv.append(h3)
 
-        reviewDiv.append(newh2)
-
-        divCard.append(h2, img, h1, reviewDiv, addReviewBtn)
+        divCard.append(img, h1, reviewDiv, addReviewBtn)
         productDiv.append(divCard)
 
         this.renderReviews(reviewDiv)
