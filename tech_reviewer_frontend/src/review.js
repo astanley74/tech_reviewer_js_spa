@@ -1,6 +1,4 @@
 let addReview = false;
-let reviewDiv = document.querySelector('.review')
-
 
 class Review {
     constructor(review){
@@ -36,7 +34,7 @@ class Review {
 
         formDiv.addEventListener('submit', function(event) {
             let newForm = formDiv.lastElementChild
-            
+
             event.preventDefault();
             apiService.postReview(event, product_id)
             .then(review => {

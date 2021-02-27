@@ -30,9 +30,14 @@ class Product {
             event.preventDefault();
             apiService.postProduct(event)
             .then(product => {
-                let newProduct = new Product(product)
-                newProduct.appendProduct()
-                form.reset()
+                if (product.message){
+                    alert(product.message)
+                }
+                else { 
+                    let newProduct = new Product(product)
+                    newProduct.appendProduct()
+                    form.reset()
+                }
             })
         })
     }
@@ -56,9 +61,6 @@ class Product {
 
         let h1 = document.createElement('h1')
         h1.innerHTML = `${this.brand} ${this.name} ($${this.price})`
-
-        // let h2 = document.createElement('h2')
-        // h2.innerHTML = `Avg Rating: ${this.avg_rating}`
 
         let img = document.createElement('img')
         img.setAttribute('class', 'product-image')
