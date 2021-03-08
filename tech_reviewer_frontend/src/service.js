@@ -45,7 +45,7 @@ class ApiService {
     }
 
     removeReview(event) {
-        let id = event.target.parentElement.parentElement.dataset.id
+        const id = event.target.parentElement.parentElement.dataset.id
         fetch(`${this.baseUrl}/reviews/${id}`, {
             method: "DELETE"
         })
