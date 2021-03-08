@@ -9,7 +9,7 @@ class ApiService {
     }
 
     postProduct(event) {
-        return fetch('http://localhost:3000/api/v1/products', {
+        return fetch(`${this.baseUrl}/products`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -27,7 +27,7 @@ class ApiService {
     }
 
     postReview(event, product_id) {
-        return fetch('http://localhost:3000/api/v1/reviews', {
+        return fetch(`${this.baseUrl}/reviews`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -46,7 +46,7 @@ class ApiService {
 
     removeReview(event) {
         let id = event.target.parentElement.parentElement.dataset.id
-        fetch(`http://localhost:3000/api/v1/reviews/${id}`, {
+        fetch(`${this.baseUrl}/reviews/${id}`, {
             method: "DELETE"
         })
     }
