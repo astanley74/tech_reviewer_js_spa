@@ -14,7 +14,7 @@ class Product {
     static fetchProducts() {
         apiService.findProducts()
         .then(products => products.forEach(product => {
-            let newProduct = new Product(product)
+            const newProduct = new Product(product)
             newProduct.appendProduct()
         }))
     }
@@ -34,7 +34,7 @@ class Product {
                     alert(product.message)
                 }
                 else { 
-                    let newProduct = new Product(product)
+                    const newProduct = new Product(product)
                     newProduct.appendProduct()
                     form.reset()
                 }
@@ -54,25 +54,25 @@ class Product {
     }
 
     appendProduct() {
-        let productDiv = document.querySelector('#product-collection')
-        let divCard = document.createElement('div')
+        const productDiv = document.querySelector('#product-collection')
+        const divCard = document.createElement('div')
         divCard.setAttribute('class', 'product')
         divCard.dataset.id = this.id
 
-        let h1 = document.createElement('h1')
+        const h1 = document.createElement('h1')
         h1.innerHTML = `${this.brand} ${this.name} ($${this.price})`
 
-        let img = document.createElement('img')
+        const img = document.createElement('img')
         img.setAttribute('class', 'product-image')
         img.src = this.image_url
 
-        let reviewDiv = document.createElement('div')
+        const reviewDiv = document.createElement('div')
         reviewDiv.setAttribute('class', 'review')
 
-        let h3 = document.createElement('h3')
+        const h3 = document.createElement('h3')
         h3.innerHTML = "Product Reviews:"
 
-        let addReviewBtn = document.createElement('button')
+        const addReviewBtn = document.createElement('button')
         addReviewBtn.setAttribute('class', 'add-review-button')
         addReviewBtn.innerHTML = "Add Review"
 
@@ -89,7 +89,7 @@ class Product {
     renderReviews(reviewDiv) {
         if (this.reviews) {
             this.reviews.forEach(review => {
-                let newReview = new Review(review)
+                const newReview = new Review(review)
                 newReview.appendReview(reviewDiv)
             })
         }
