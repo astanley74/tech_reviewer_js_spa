@@ -20,7 +20,6 @@ class ApiService {
                 name: event.target.name.value,
                 brand: event.target.brand.value,
                 price: event.target.price.value,
-                avg_rating: undefined,
                 image_url: event.target.image.value
             })
         })

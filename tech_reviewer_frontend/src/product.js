@@ -76,7 +76,6 @@ class Product {
         addReviewBtn.setAttribute('class', 'add-review-button')
         addReviewBtn.innerHTML = "Add Review"
 
-
         reviewDiv.append(h3)
 
         divCard.append(img, h1, reviewDiv, addReviewBtn)
