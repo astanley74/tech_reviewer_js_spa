@@ -9,11 +9,11 @@ class Review {
     }
 
     static newReviewForm(product_id, reviewDiv, divCard) {
-        let formDiv = document.createElement('div')
+        const formDiv = document.createElement('div')
         formDiv.setAttribute('class', 'review-form')
         divCard.append(formDiv)
 
-        let form = 
+        const form = 
 `           <form class="new-review-form">
                 <label>Name: </label>
                 <input type="text" name="user" id="new-review-name"/><br><br>
@@ -33,12 +33,12 @@ class Review {
         Review.hideOrShowReviewForm(formDiv)
 
         formDiv.addEventListener('submit', function(event) {
-            let newForm = formDiv.lastElementChild
+            const newForm = formDiv.lastElementChild
 
             event.preventDefault();
             apiService.postReview(event, product_id)
             .then(review => {
-                let newReview = new Review(review)
+                const newReview = new Review(review)
                 newReview.appendReview(reviewDiv)
                 newForm.reset()
                 formDiv.style.display = "none";
@@ -48,7 +48,7 @@ class Review {
     }
 
     static hideOrShowReviewForm(formDiv) {
-        let addReviewBtn = formDiv.parentElement.getElementsByClassName("add-review-button")[0]
+        const addReviewBtn = formDiv.parentElement.getElementsByClassName("add-review-button")[0]
         addReviewBtn.addEventListener('click', function() {
             addReview = !addReview
             if (addReview) {
@@ -61,17 +61,17 @@ class Review {
     }
 
     appendReview(reviewDiv){
-        let currentReview = document.createElement('div')
+        const currentReview = document.createElement('div')
         currentReview.dataset.id = this.id
         currentReview.setAttribute('class', 'current-review')
 
-        let p = document.createElement('p')
+        const p = document.createElement('p')
         p.innerHTML = `${this.user} - Rating: ${this.rating}`
 
-        let li = document.createElement('li')
+        const li = document.createElement('li')
         li.innerHTML = `${this.comment}`
 
-        let deleteBtn = document.createElement('button')
+        const deleteBtn = document.createElement('button')
         deleteBtn.innerHTML = "Delete Review"
 
         p.append(deleteBtn)
