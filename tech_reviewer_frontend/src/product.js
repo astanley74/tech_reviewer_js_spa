@@ -1,6 +1,9 @@
 let addProduct = false
 
 class Product {
+
+    static allProducts = []
+
     constructor(product){
         this.id = product.id
         this.name = product.name
@@ -9,6 +12,7 @@ class Product {
         this.avg_rating = product.avg_rating
         this.image_url = product.image_url
         this.reviews = product.reviews
+        Product.allProducts.push(this)
     }
 
     static fetchProducts() {

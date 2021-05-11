@@ -22,6 +22,9 @@ This JavaScript SPA was created so users can add Products that they would like t
     $ cd tech_reviewer_frontend
     $ open index.html
 
+## Demo
+[Application Walkthrough](https://www.youtube.com/watch?v=BcMpUzjVCik)
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/astanley74/tech_reviewer_js_spa. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/astanley74/tech_reviewer_js_spa/blob/master/CODE_OF_CONDUCT.md).
